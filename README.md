@@ -5,7 +5,7 @@ For fun, useless projects only :)
 ##Game Plan:
 ####1.) Obtain lots of cat videos.  Store their titles and frames.
 ####2.) Use something like https://github.com/shekkizh/FCN.tensorflow to get a semantic segmentation of the video and get a kitty mask from that.  Compute a bounding-box around the kitty and crop out just that part of the mask and resize it and flatten into a "silhouette-vector".  For now don't even try to do anything else to the silhouette.  If there's no kitty, just output all zeros.
-####3.) Find an already-trained semantic-vector-space model that can encode and decode between phrases and phrase-vectors.  Something like char-rnn.
+####3.) Train char-rnn on a bunch of text, except structure it like in https://arxiv.org/pdf/1511.01432.pdf.  It'll take a while to train but so be it.
 ####4.) Design a simple LSTM that takes in the silhouette-vectors and spits out a phrase-vector at the end.  Use the most lightweight one you can find!  Make the hidden state as small as you want and have a single layer that converts the final state into a phrase-vector.  Use ReLUs whenever possible!
 ####5.) Train the LSTM (and single layer at the end) to match the title phrase-vector given the sequence of silhouette-vectors.
 ####6.) At test-time, decode the predicted phrase vector to get your "translation".
